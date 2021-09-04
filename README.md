@@ -1,8 +1,8 @@
 # ALURA COURSE
 
-Repository created to store codes developed during Alura courses.
+Repository created to store codes developed during Alura courses provided by the organizers and supporters of the "Cloud Girls" Meetup. 
 
-_Repositorio criado para armazenar códigos desenvolvidos durante os cursos da Alura._
+_Repositório criado para armazenar códigos desenvolvidos durante os cursos do Alura oferecidos pelos organizadores e apoiadores do Meetup "Cloud Girls '._
 
 * [ORACLE ONE Programming Logic (_Lógica de programação_);](https://github.com/joelmaregina/Alura-Couse/tree/master/logicaDeProgramacao)
   * [Lógica I](https://github.com/joelmaregina/Alura-Couse/tree/master/logicaDeProgramacao/L%C3%B3gica%20I);
