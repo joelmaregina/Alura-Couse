@@ -1,4 +1,4 @@
-# Cloud Girls && ALURA COURSE
+# :girl: Cloud Girls && ALURA COURSE :computer:
 
 Repository created to store codes developed during Alura courses provided by the organizers and supporters of the "Cloud Girls" Meetup. 
 
