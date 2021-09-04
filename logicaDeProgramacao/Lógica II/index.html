@@ -1,0 +1,676 @@
+
+<canvas width="600" height="400"> </canvas>
+<br><br>
+<!--Selecione a sua cor <input type = "color"/> -->
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'pink';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaQuadrado(x, y, tamanho, cor) {
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, tamanho, tamanho)
+        pincel.fill();
+    }
+
+    function desenhaCirculo(x, y, raio, cor) {
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * 3.14);
+        pincel.fill();
+    }
+    function desenhaPaletaDeCores() {
+        desenhaQuadrado(xVermelho, yQuadrados, tamanhoQuadrados, 'red');
+        desenhaQuadrado(xVerde, yQuadrados, tamanhoQuadrados, 'green');
+        desenhaQuadrado(xAzul, yQuadrados, tamanhoQuadrados, 'blue');
+    }
+    function lidaComMovimentoDoMouse(evento) {
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        if(desenha) {
+            if (x >= 0 && x <= 600 && y >= 55 && y <= 400) {
+                desenhaCirculo(x, y, 5, corAtual);
+            }
+        }
+    }
+    function escolheCor(evento) {
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        if(x >= 0 && x <= 49 && y >= 0 && y <= 51 ){
+            corAtual = 'red'
+        } else if (x >= 50 && x <= 99 && y >= 0 && y <= 51 ){
+            corAtual = "green";
+        } else if (x >= 100 && x <= 149 && y >= 0 && y <= 51 ){
+            corAtual = "blue";
+        }            
+    }  
+    function habilitaDesenhar() {
+            desenha = true;               
+    }
+    function desabilitaDesenhar() {
+        desenha = false;
+    }
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var desenha = false;
+    var corAtual;
+    var xVermelho = 0;
+    var xVerde  = 50;
+    var xAzul = 100;
+    var yQuadrados = 0;
+    var tamanhoQuadrados = 50;
+
+    desenhaPaletaDeCores(); // mostra os quadrados de seleção de cores
+    
+    tela.onclick = escolheCor;
+    tela.onmousemove = lidaComMovimentoDoMouse;
+    tela.onmousedown = habilitaDesenhar;
+    tela.onmouseup = desabilitaDesenhar;
+//***********************************************************************************************************************************
+
+//ATIVIDADE 1 - MÓDULO 5 - CRIANDO UM JOGO DE CLIQUE AO ALVO QUE EMITE ALERTA AO ACERTAR O CENTRO;
+    /*function desenhaCirculo(x, y, raio, cor){
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function limpaTela(){
+        pincel.clearRect(0, 0 , 600, 400);
+    }
+    var raio = 10;
+
+    function desenhaAlvo(x, y){
+        desenhaCirculo(x, y, raio + 20, 'red');
+        desenhaCirculo(x, y, raio + 10, 'white');
+        desenhaCirculo(x, y, raio, 'red');   
+    };
+    function sorteiaPosicao(maximo){
+        return Math.floor(Math.random() * maximo);
+    };
+
+    var xAleatorio;
+    var yAleatorio;
+
+    function atualizaTela(){
+        limpaTela();
+        xAleatorio = sorteiaPosicao(600);
+        yAleatorio = sorteiaPosicao(400);
+        desenhaAlvo(xAleatorio,yAleatorio)
+    };
+    function dispara(evento) {
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        if ( (x >= xAleatorio - raio)
+             && (x <= xAleatorio + raio)
+             && (y >= yAleatorio - raio) 
+             && (y <= yAleatorio + raio)){
+            alert("Você acertou o alvo!")
+        }
+    }
+
+    setInterval(atualizaTela, 1000);
+    tela.onclick = dispara;*/
+//***********************************************************************************************************************************
+
+//ATIVIDADE 4 - MÓDULO 4 - TROCANDO DE BANDEIRAS DO BRASIL DE 3 EM SEGUNDOS
+    /*function desenhaBandeiraBrasil() {    
+        pincel.fillStyle="green";
+        pincel.fillRect(0, 0, 600, 400);
+        // OS DOIS TRIANGULOS AMARELOS
+        pincel.fillStyle="yellow";
+        pincel.beginPath();
+        pincel.moveTo(300, 50);
+        pincel.lineTo(50, 200);
+        pincel.lineTo(550, 200);
+        pincel.fill();
+        pincel.beginPath();
+        pincel.moveTo(50, 200);
+        pincel.lineTo(300, 350);
+        pincel.lineTo(550, 200);
+        pincel.fill();
+        //BOLA AZUL
+        pincel.fillStyle="darkblue";
+        pincel.beginPath();
+        pincel.arc(300, 200, 100, 0, 2* 3.14);
+        pincel.fill();
+    }
+
+    function desenhaBandeiraAlemanha() {
+        pincel.fillStyle = 'black';
+        pincel.fillRect(0, 0, 600, 133);
+        pincel.fillStyle = 'red';
+        pincel.fillRect(0, 133, 600, 133);
+        pincel.fillStyle = 'yellow';
+        pincel.fillRect(0, 266, 600, 133);
+    }
+
+    var mostraBrasil = true;
+
+    function trocaBandeira(){
+        if(mostraBrasil) {
+            desenhaBandeiraBrasil();
+        } else {
+            desenhaBandeiraAlemanha();
+        }
+        mostraBrasil = !mostraBrasil;
+    }
+
+    setInterval(trocaBandeira, 3000)*/
+//***********************************************************************************************************************************
+
+// ATIVIDADE 3  - MÓDULO 4 - FAZENDO A BOLINHA ANDAR, CONFORME A GENTE CLICA NO TECLADO
+    /*var x = 20;
+    var y = 20;
+    // códigos do teclado
+    var esquerda = 37;
+    var cima = 38;
+    var direita = 39;
+    var baixo = 40;
+    // taxa de incremento
+    var taxa = 10;
+
+    function desenhaCirculo(x, y, raio) {
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function limpaTela() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+    function atualizaTela() {
+        limpaTela();
+        desenhaCirculo(x, y, 10);
+    }
+
+    setInterval(atualizaTela, 20);
+
+    function leDoTeclado(evento) {
+        if (evento.keyCode == esquerda){
+            x = x - taxa
+        }else if (evento.keyCode == direita){
+            x = x + taxa
+        };
+        if (evento.keyCode == cima){
+            y = y - taxa
+        }else if (evento.keyCode == baixo){
+            y = y + taxa
+        };      
+    }
+
+   document.onkeydown = leDoTeclado;*/
+
+//***********************************************************************************************************************************
+
+//ATIVIDADE 2 - MÓDULO 4 - FAZENDO ANIMAÇÃO PARA A BOLINHA CRESCER E DIMINUIR
+    /*function desenhaCirculo(x, y, raio, cor) {
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function limpaTela() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+    var raio = 20
+    var variacao = 1
+
+    function atualizaTela(){
+        limpaTela();
+        if (raio > 30){
+            variacao = -1
+        } else if (raio < 20) {
+            variacao = 1
+        }
+        desenhaCirculo(50, 50, raio, 'blue')
+        raio = raio + variacao;
+    };
+    setInterval(atualizaTela, 20)*/
+//***********************************************************************************************************************************
+
+//ATIVIDADE 1 - MÓDULO 4 - FAZENDO UMA ANIMAÇÃO QUE VAI DA DIREITA PRA ESQUERDA NO CANVAS;
+    /*function desenhaCirculo(x, y, raio){
+        pincel.fillStyle = "purple";
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function limpaTela(){
+        pincel.clearRect(0, 0, 600, 400);
+    };
+
+    var x= 20;
+    var direcao = 1;
+    function atualizaTela(){
+        limpaTela();
+        if (x > 600){
+            direcao = -1;
+        }else if (x < 0){
+            direcao = 1
+        }
+        desenhaCirculo(x, 20, 10);
+        x = x + direcao;
+    };
+    setInterval(atualizaTela, 10);*/
+//***********************************************************************************************************************************
+
+//ATIVIDADE 7 - MÓDULO 3 - DE EMITIR UM ALERTA QUANDO A PESSOA CLICA NO CENTRO DO ALVO
+    /*var raio = 10;
+    function desenhaCirculo(x, y, raio, cor) {
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    desenhaCirculo(300,200, raio + 20, 'red'); // maior círculo
+    desenhaCirculo(300,200, raio + 10, 'white');
+    desenhaCirculo(300,200, raio, 'red'); // menor circulo
+
+    function dispara(evento) {
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        if (x >= 230 && x <= 310 && y >= 190 && y <= 210 ){
+            alert("Você acertou o alvo!")
+        }
+       // lógica de acerto?
+    }
+    tela.onclick = dispara;*/
+//***********************************************************************************************************************************
+
+//ATIVIDADE 6 - MÓDULO 3 - DESENHANDO BOLINHAS DE CORES DIFERENTES A PARTIR DE UM INPUT TYPE= COLOR NO MUNDO HTML
+    /*var cores = document.querySelector("input")
+
+    var desenhar = false;
+    function desenhaCirculo(evento) {
+        if (desenhar){
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            pincel.fillStyle = cores.value;
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);
+            pincel.fill();
+        }
+        console.log(x + ',' + y);
+    }
+    tela.onmousemove = desenhaCirculo;
+    function habilitaDesenhar (){
+        desenhar = true
+    };
+    function desabilitaDesenhar (){
+        desenhar = false
+    };
+
+    tela.onmousedown = habilitaDesenhar;
+    tela.onmouseup = desabilitaDesenhar;*/
+//***********************************************************************************************************************************
+
+// ATIVIDADE 5 (Mesma que a anterior, porém primorado com FUNÇÕES ANÔNIMAS)
+    /*var desenhar = false;
+    tela.onmousemove = function (evento) {
+        if (desenhar){
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            pincel.fillStyle = 'purple';
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);
+            pincel.fill();
+        }
+        console.log(x + ',' + y);
+    }
+
+    tela.onmousedown = function (){
+        desenhar = true
+    };
+    tela.onmouseup = function (){
+        desenhar = false
+    };*/
+ //***********************************************************************************************************************************
+
+// ATIVIDADE 5 - MÓDULO 6 - CIRANDO BOLINHAS SEGUIDAS AO CLICAR BOTÃO DO MOUSE
+ //tela.onmousedown = **function** - É disparado quando botão o esquerdo do mouse é pressionado.
+ //tela.onmouseup = **function** - É disparado quando o botão esquerdo é solto.
+    /*var desenhar = false;
+    function desenhaCirculo(evento) {
+        if (desenhar){
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            pincel.fillStyle = 'purple';
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);
+            pincel.fill();
+        }
+        console.log(x + ',' + y);
+    }
+
+    tela.onmousemove = desenhaCirculo;
+    function habilitaDesenhar (){
+        desenhar = true
+    };
+    function desabilitaDesenhar (){
+        desenhar = false
+    };
+
+    tela.onmousedown = habilitaDesenhar;
+    tela.onmouseup = desabilitaDesenhar;*/
+ //***********************************************************************************************************************************
+ 
+ // ATIVIDADE 4 - MÓDULO 3 - AUMENTANDO DE 10 EM 10 A BOLINHA ATÉ 40 APERTANDO SHIFT E DIMINUI A BOLINHA DE 5 EM 5 ATÉ 10 APERTANDO ALT
+    /*var tamanhoDaBolinha = 10;
+    function desenhaBolinha(evento){
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        if (evento.shiftKey && evento.altKey) {
+            alert('Só aperte uma tecla por vez, por favor!');
+        } else if(evento.shiftKey && tamanhoDaBolinha + 10 <= 40) {
+            tamanhoDaBolinha = tamanhoDaBolinha + 10;
+        } else if(evento.altKey && tamanhoDaBolinha - 5 >= 10) {
+            tamanhoDaBolinha = tamanhoDaBolinha - 5;
+        }
+        pincel.arc(x, y, tamanhoDaBolinha, 0, 2 * 3.14);
+        pincel.fill();
+        console.log(x + ',' + y)
+    }
+
+    tela.onclick = desenhaBolinha;*/
+ //***********************************************************************************************************************************
+
+ // ATIVIDADE 3 - MÓDULO 3 - AUMENTANDO PROGRESSIVAMENTE DE 10 EM 10 O TAMANHO DA BOLINHA AO APERTAR SHIFT
+    /*var tamanhoDaBolinha = 10;
+
+    function desenhaBolinha(evento){
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        if  (evento.shiftKey){
+            tamanhoDaBolinha = tamanhoDaBolinha + 10;
+        }
+        pincel.arc(x, y, tamanhoDaBolinha, 0, 2 * 3.14);
+        pincel.fill();
+        console.log(x + ',' + y)
+    }
+
+    tela.onclick = desenhaBolinha;*/        
+    //***********************************************************************************************************************************
+
+    // ATIVIDADE 2 - MÓDULO 3 - MUDANDO O TAMANHO DA BOLINHA APERTANDO EM SHIFT
+    /*function desenhaBolinha(evento){
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        var tamanhoDaBolinha = 10
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        if  (evento.shiftKey == true){
+            var tamanhoDaBolinha = tamanhoDaBolinha + 20;
+        }
+        pincel.arc(x, y, tamanhoDaBolinha, 0, 2 * 3.14);
+        pincel.fill();
+        console.log(x + ',' + y)
+    }
+        tela.onclick = desenhaBolinha;*/
+//***********************************************************************************************************************************
+    
+    // ATIVIDADE 1 - MÓDULO 3 - MUDANDO COR DA BOLINHA AO CLICAR COM O BOTÃO DIREITO;
+    /*var cores = ['blue', 'red', 'green'];
+    var indiceCorAtual = 0;
+    function desenhaBolinha(evento){
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        pincel.fillStyle = cores[indiceCorAtual];
+        pincel.beginPath();
+        pincel.arc(x, y, 10, 0, 2 * 3.14);
+        pincel.fill();
+        console.log(x + ',' + y);
+    }
+    function mudaCor() {
+        indiceCorAtual++;
+        alert(indiceCorAtual);
+        if(indiceCorAtual >= cores.length){
+            indiceCorAtual = 0
+        }
+        return false;
+    }
+
+    tela.onclick = desenhaBolinha;
+    tela.oncontextmenu = mudaCor;*/
+ //***********************************************************************************************************************************
+    
+    //SIMPLIFICANDO A ATIVIDADE DOS ESQUADROS USANDO FUNCTION
+    /*function desenhaEsquadro (xa,ya, xc, yc, cor){
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.moveTo(xa,ya);
+        pincel.lineTo(xa,yc);
+        pincel.lineTo(xc,yc);
+        pincel.fill();        
+    };
+
+    desenhaEsquadro (50, 50, 400, 400, 'black');
+    desenhaEsquadro (100, 175, 275, 350, 'white'); */
+ //***********************************************************************************************************************************
+
+    //CRIANDO GRÁFICO DE BARRAS - CANVAS + ARRAY E LAÇO WHILE + FOR
+ /*function desenhaRetangulo(x, y, largura, altura, cor) {
+        pincel.fillStyle=cor;
+        pincel.fillRect(x,y, largura, altura);
+        pincel.strokeStyle='black';
+        pincel.strokeRect(x,y, largura, altura);
+    }
+
+    function desenhaTexto(x, y, texto) {
+        pincel.font='15px Georgia';
+        pincel.fillStyle='black';
+        pincel.fillText(texto, x, y);    
+    }
+
+    function desenhaBarra(x,y,serie,cores,texto){        
+        desenhaTexto(x, y - 10, texto);
+
+        var somaAltura = 0;
+        for (var i = 0; i < serie.length; i++){
+            var altura = serie[i];
+            desenhaRetangulo (x,y + somaAltura, 50, altura, cores[i]);
+                somaAltura = somaAltura + altura;
+        }
+    }
+    var serie2015 = [50, 25, 20, 5];
+    var serie2016 = [65, 20, 13, 2];
+    var cores = ['blue','green','yellow','red'];
+
+    desenhaBarra(50, 50, serie2015, cores, '2015');
+    desenhaBarra(150, 50, serie2016, cores, '2016');*/
+//***********************************************************************************************************************************
+ 
+    //ATIVIDADE 2 MODULO2 - REPLICANDO EXEMPLO DE FRAÇÕES + TEXTO
+    /*function desenhaQuadrado(x,y,tamanho,cor) {
+        pincel.fillStyle = cor;
+        pincel.fillRect(x,y,tamanho,tamanho);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x,y,tamanho,tamanho);        
+    // aqui precisamos usar fillRect, strokeRect, etc 
+    };
+    function desenhaTexto(texto, x , y) {
+        pincel.font='20px Georgia';
+        pincel.fillStyle='black';
+        pincel.fillText(texto, x, y);    
+    }
+    desenhaTexto("Qual é a fração?", 50, 30);
+    var y = 50;
+    desenhaQuadrado(0,y,50,'green');
+    desenhaQuadrado(50,y,50,'green');
+    desenhaQuadrado(100,y,50,'green');
+    desenhaQuadrado(150,y,50, 'white');*/
+//***********************************************************************************************************************************
+   
+   //ATIVIDADE 1 - MÓDULO 2 - REPLICANDO UMA "FLOR"
+   /* pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+    function desenhaCirculo(x, y, raio, cor) {
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2*3.14);
+        pincel.fill();
+    }
+    desenhaCirculo(300,200,10,"red");
+    desenhaCirculo(300,180,10,"yellow");
+    desenhaCirculo(300,220,10,"blue");
+    desenhaCirculo(320,200,10,"black");
+    desenhaCirculo(280,200,10,"orange");*/
+//***********************************************************************************************************************************
+
+    //EXEMPLIFICANDO COMO USAR WHILE E FOR PARA REPETIÇÃO DA CRIAÇÃO DOS QUADRADOS
+   /* function desenhaQuadrado(x, y, cor) {
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, 50, 50);
+    }
+    //REPETINDO A REPLICAÇÃO DO QUADRADO ATÉ O LIMITE DA TELA(600) COM WHILE
+    /*
+    var x = 0;
+    while(x < 600) {
+        desenhaQuadrado(x, 0, 'green');
+    x = x + 50;
+    }
+   */
+    //REPETINDO A REPLICAÇÃO DO QUADRADO ATÉ O LIMITE DA TELA(600) COM FOR (MAIS SIMPLES)
+   /* for(var x = 0; x < 600; x = x + 50) {
+        desenhaQuadrado(x, 0, 'green');
+        desenhaQuadrado(x, 50, 'yellow');
+        desenhaQuadrado(x, 100, 'red');
+        desenhaQuadrado(x, 150, 'blue');
+    }*/    
+//***********************************************************************************************************************************
+    
+    //DESENHA 3 QUADRADOS COLORIDOS UM EM BAIXO DO OUTRO
+   /* function desenhaQuadrado(x, y, cor) { 
+    pincel.fillStyle = cor;
+    pincel.fillRect(x, y, 50, 50);
+    pincel.strokeStyle = 'black';
+    pincel.strokeRect(x, y, 50, 50);
+    }
+    desenhaQuadrado(0, 0, 'blue');
+    desenhaQuadrado(0, 50, 'red');
+    desenhaQuadrado(0, 100, 'yellow');
+    //DESENHA 3 QUADRADOS COLORIDOS UM DO LADO DO OUTRO INICIANDO NO EIXO X EM 50
+    function desenhaQuadrado(x, y, cor) { 
+    pincel.fillStyle = cor;
+    pincel.fillRect(x, y, 50, 50);
+    pincel.strokeStyle = 'black';
+    pincel.strokeRect(x, y, 50, 50);
+    }
+    desenhaQuadrado(50, 0, 'green');
+    desenhaQuadrado(100, 0, 'green');
+    desenhaQuadrado(150, 0, 'green');*/
+//***********************************************************************************************************************************
+
+   //ATIVIDADE 3 - MÓDULO 3 - RECRIANDO A BANDEIRA DO BRASIL
+    //VERDE DA BANDEIRA
+   /*pincel.fillStyle = 'green';
+   pincel.fillRect(0,0,600,400);
+   //PARTE 1 DO LOSANGO - TRIANGULO SUPERIOR
+   pincel.fillStyle = 'yellow';
+   pincel.beginPath();
+   pincel.moveTo(300,40);
+   pincel.lineTo(60, 200);
+   pincel.lineTo(525, 200);
+   pincel.fill();
+   //PARTE 2 DO LOSANGO - TRIANGULO INFERIOR
+   pincel.fillStyle = 'yellow';
+   pincel.beginPath();
+   pincel.moveTo(300,360);
+   pincel.lineTo(60, 200);
+   pincel.lineTo(525, 200);
+   pincel.fill();
+    //BOLA AZUL DA BANDEIRA
+    pincel.fillStyle = 'darkblue'
+    pincel.beginPath();
+    pincel.arc(300,200, 100, 0, 2 *3.14);
+    pincel.fill();*/
+//***********************************************************************************************************************************
+   
+    //ATIVIDADE 2 - MÓDULO 1 -RECRIANDO TRIANGULO PRETO COM TRIANGULO BRANCO DENTRO
+    // FAZENDO O TRIANGULO PRETO
+  /* pincel.fillStyle = 'black';
+   pincel.beginPath();
+   pincel.moveTo(50,50);
+   pincel.lineTo(50,400);
+   pincel.lineTo(400, 400);
+   pincel.fill();
+   //FAZENDO O TRIANGULO BRANCO
+   pincel.fillStyle = 'white';
+   pincel.beginPath();
+   pincel.moveTo(100,175);
+   pincel.lineTo(100,350);
+   pincel.lineTo(275, 350);
+   pincel.fill();*/   
+//***********************************************************************************************************************************
+
+    /*//ATIVIDADE 1 - MÓDULO 1- RECRIANDO A CARA DO CREEPER
+   //CRIANDO O ROSTO
+   pincel.fillStyle = "darkgreen";
+   pincel.fillRect(200, 50 , 350, 300);
+    // CRIANDO OLHO 1
+   pincel.fillStyle = "black";
+   pincel.fillRect(250, 110 , 90, 90);
+    //CRIANDO OLHO 2
+   pincel.fillStyle = "black";
+   pincel.fillRect(410, 110 , 90, 90);
+    //CRIANDO O NARIZ
+   pincel.fillStyle = "black";
+   pincel.fillRect(340, 200, 70, 100);
+    //CRIANDO BOCA PARTE 1
+   pincel.fillStyle = "black";
+   pincel.fillRect(300, 240 , 40, 110);
+    //CRIANDO BOCA PARTE 2
+   pincel.fillStyle = "black";
+   pincel.fillRect(410, 240 , 40, 110);*/
+//***********************************************************************************************************************************
+   
+    // PRIMEIRA PARTE  - VÍDEO
+    /* // CRIA A "TELA" DE DESENHO DO CANVAS
+    pincel.fillStyle = 'white';
+    pincel.fillRect(0,0, 600, 400);    
+
+    // CRIA UMA BARRA VERDE NO 1/3 ESQUERDO DO CANVAS
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0,0, 200, 400);
+
+    //CRIA UMA BARRA LARANJA NO 1/3 DIREITO DO CANVAS
+    pincel.fillStyle = 'orange';
+    pincel.fillRect(400, 0, 200,400);
+
+    //CRIA UM TRIANGULO AZUL NO CENTRO ATÉ O MEIO DA TELA 
+    pincel.fillStyle = "blue";
+    pincel.beginPath();
+    pincel.moveTo(300,200);
+    pincel.lineTo(200, 400);
+    pincel.lineTo(400, 400);
+    pincel.fill();
+
+    //CRIA UMA BOLA ROSA NO MEIO DA TELA
+    pincel.fillStyle = 'pink';
+    pincel.beginPath();
+    pincel.arc(300, 200, 50, 0, 2 * 3.14 ) ;
+    pincel.fill();*/
+
+
+</script>
+

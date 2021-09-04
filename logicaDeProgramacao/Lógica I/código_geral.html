@@ -1,0 +1,420 @@
+<meta charset="UTF-8">
+
+<!--<h3>Testando códigos - Módulo I Lógica de Programação</h3>-->
+<br>
+    <input/>
+	<button>BOTÃO</button>
+
+<script>
+	//ADCIONANDO INGREDIENTES EM UM ARRAY SEM REPETIR ITENS	
+	/*var ingredientes = [];
+
+    var quantidade = parseInt(prompt("Quantos ingredientes você vai adicionar?"));
+
+    var contador = 1;
+
+    while( contador <= quantidade) {
+        var ingrediente = prompt("Informe o ingrediente " + contador);
+		var existe = false;
+		for (var posicao = 0; posicao < ingredientes.length; posicao++){
+			if (ingredientes[posicao] == ingrediente){
+				existe = true;
+				break;
+			}
+		}
+		if (existe == false){
+			ingredientes.push(ingrediente)
+			contador++;
+		}		     
+    }
+    console.log(ingredientes);*/
+	
+	// FUNÇÃO SORTEIA COM ARRAY DE QUANTIDADE DE ITENS PRE-DEFINIDO 
+	/*function sorteia() {
+       return Math.round(Math.random() * 10);
+    }
+    function sorteiaNumeros(quantidade) {
+        var segredos = [];
+        var numero = 1;
+        while(numero <= quantidade) {
+              var numeroAleatorio = sorteia();
+              var achou = false;
+              if (numeroAleatorio !== 0) {
+                     for(var posicao = 0; posicao < segredos.length; posicao++) {
+                           if(segredos[posicao] == numeroAleatorio){
+                                achou = true;
+                                break;
+                           }
+                     }
+                     if (achou == false) {
+                           segredos.push(numeroAleatorio);
+                           numero++;
+                     }
+              }
+
+        }
+        return segredos;
+    }
+    var segredos = sorteiaNumeros(3);
+    console.log(segredos);
+    var input = document.querySelector("input");
+    input.focus();
+
+    function verifica() {
+       var achou = false;
+       for(var posicao = 0; posicao < segredos.length; posicao++) {
+              if(input.value == segredos[posicao]) {
+                     alert("Você ACERTOU!");
+                     achou = true;
+                     break;
+              } 
+       }
+       if(achou == false) {
+              alert("Você ERROU!");
+       }
+       input.value = "";
+       input.focus();
+    }
+    var button = document.querySelector("button");
+    button.onclick = verifica;*/
+	
+	
+	// VERIFICANDO NÚMEROS EM ARRRAYS
+	/*var segredos = [5,7,10,2,3];
+    var input = document.querySelector("input");
+    input.focus();
+
+    function verifica() {
+    var achou = false;
+    for(var posicao = 0; posicao < segredos.length; posicao++) {
+        if(input.value == segredos[posicao]) {
+            alert("Você ACERTOU!");
+            achou = true;
+            break;
+        }
+    }
+
+		if(achou == false) {
+			alert("Você ERROU!");
+		}
+
+		input.value = "";
+		input.focus();
+		}
+
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;*/
+	
+	//NOVO ADVINHA COM INPUT
+    /*var segredo = Math.round(Math.random() * 10);
+
+    var input = document.querySelector("input");
+        input.focus();
+
+    function verifica() {
+        if(input.value == segredo) {
+
+        alert("Você ACERTOU!");
+        } else {
+        alert("Você ERROU!!!!!!!!");
+        }
+                input.value = "";
+                input.focus();
+    }
+
+    var button = document.querySelector("button");
+    button.onclick = verifica;*/
+	
+	//JOGO DO SORTEIA / ADVINHA COM LIMITE DE 3 TENTATIVAS E BREAK
+	/*function pulaLinha() {
+        document.write("<br>");
+	}
+    function mostra(frase) {
+		document.write(frase);
+        pulaLinha();
+	}
+
+	var numeroPensado = Math.round(Math.random() * 10);
+
+	var tentativas = 1;
+
+	while(tentativas <= 3) {
+		var chute = parseInt(prompt("Digite seu chute!"));
+		if(chute == numeroPensado) {
+			mostra("Você ACERTOU, o número pensado era " + numeroPensado);
+			break;
+		} else {
+        mostra("Você ERROU!");
+    }
+    tentativas++;
+	}
+	mostra("FIM");*/
+
+	
+	//CAUCULO DE GASTO MÉDIO COM EVENTOS
+	/*function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var totalDeEventos = parseInt(prompt("Informe o total de eventos"));
+
+    var contador = 1;
+	var totalGastoComEventos = 0;
+	
+    while(contador <= totalDeEventos) {      
+        var gasto = parseFloat(prompt("Informe total gasto com evento"));
+        totalGastoComEventos = totalGastoComEventos + gasto;
+        contador++;
+    }
+
+    var media = totalGastoComEventos / totalDeEventos;
+
+    mostra("A média de gastos é " + media);*/
+	
+	
+	//SUBSTITUINDO WHILE POR FOR
+	/*var i = 0
+	while (i < 10){
+		alert( "O resultado é " + (2 * i) );
+		i++
+	}
+	
+	for( var i = 0; i < 10; i++ ) {
+		alert( "O resultado é " + (2 * i) );
+	}*/
+	
+	//3 TENTATIVAS DE LOGIN	
+	/*var loginCadastrado = "alura";
+    var senhaCadastrada = "alura321";
+	
+	var tentativas = 1;
+	var limite = 3;
+
+    while (tentativas <= limite){
+	    var loginInformado = prompt("Informe seu login");
+		var senhaInformada = prompt("Informe sua senha");
+		if( loginCadastrado == loginInformado && senhaCadastrada == senhaInformada ) {
+
+        alert("Bem-vindo ao sistema " + loginInformado);
+		} else {
+
+        alert("Login inválido. Tente novamente");
+		}
+		tentativas++
+		if (tentativas == 4) {
+		alert("Você excedeu as 3 tentativas!")
+	}
+	}*/	
+	
+	//CONTAGEM REGRESSIVA de 1 a 20
+	/*function pulaLinha(){
+		document.write("<br>")
+	}
+	function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }	
+	
+	var contador = 20
+	
+	var limite = 0
+	
+	while (contador >= limite){
+		mostra(contador)
+		contador--
+	}*/
+	
+	//CONTADOR DE 30 A 40, PULANDO 33 E 37
+	/*function pulaLinha(){
+		document.write("<br>")
+	}
+	function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }	
+	
+	var limite = 40;
+		
+    var contador = 30;
+
+    while(contador <= limite) {
+        if( contador == 33 ) {
+        contador = contador + 1;
+        }
+        if(contador == 37) {    
+            contador = contador + 1;
+        }
+        else {
+        mostra(contador);
+        contador = contador + 1; 
+        }
+      }	
+	mostra("FIM")*/
+
+   //CONTANDO DE 1 A 100 PULANDO DE 2 EM 2	
+	/*function pulaLinha(){
+		document.write("<br>")
+	}
+	function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+	
+	var limite = 100;
+	
+	var contador = 0;
+	
+	while (contador <= limite){
+		mostra(contador)
+		contador = contador + 2
+	};	*/
+	
+	
+	// CONTANDO OS ANOS DE COPA
+	/*function pulaLinha(){
+		document.write("<br><br>")
+	}
+	function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+	
+	var limite = parseInt(prompt("Escolha um ano limite"))
+	var anoCopa = 1930;
+	
+	while(anoCopa <= limite){
+		mostra("Teve copa em " + anoCopa);
+		anoCopa = anoCopa + 4;
+	}	
+	mostra("FIM")*/
+
+   // SORTEIA NUMERO PENSADO, POR NÚMERO PREVIAMENTE ESCOLHIDO
+	/*function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function sorteia(n) {
+        return Math.round(Math.random() * n);
+    }    
+	
+    var numeroPensado = sorteia(100);
+	console.log(numeroPensado)
+	
+    var chute = parseInt(prompt("Já pensei. Qual você acha que é?"));
+
+    if(chute == numeroPensado) {
+        mostra("Uau! Você acertou, pois eu pensei no " + numeroPensado);
+    } else {
+
+        if(chute > numeroPensado) {
+            mostra("Você errou! Seu chute é maior que o número pensado!");
+        } else {
+            mostra("Você errou! Seu chute é menor que o número pensado!");
+        }
+    }*/
+
+	// USANDO IF ELSE E PARSEINT
+	/*function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var idade = parseInt(prompt("Qual é sua idade?"));
+    var temCarteira = prompt("Tem carteira? Responda S ou N");
+	
+	if (idade >= 18 && temCarteira == "S") {
+		mostra("Pode dirigir!")
+	}else{
+		mostra("Não pode digirir!")
+	}*/
+	
+	
+	// UTILIZANDO PROMPT PARA PEGAR DADOS DO USUÁRIO
+	
+	/*function calculaImc (alturaInformada, pesoInformado){
+		return pesoInformado/(alturaInformada*alturaInformada)
+	};
+	
+	var nome = prompt("Informe o seu nome");
+	var alturaInformada = prompt(nome + ", informe sua altura");
+	var pesoInformado = prompt(nome + ", informe seu peso");
+		
+	var imc = calculaImc(alturaInformada, pesoInformado);
+
+	document.write(nome + ", o seu IMC calculado é de" + imc);*/
+	
+	//APLICANDO MAIS EXEMPLOS DE FUNÇÕES
+	/*function pulaLinha() {
+		document.write("<br><hr><br>");
+	}
+
+	function mostra(frase) {
+		document.write("<big>" + frase + "<big>");
+		pulaLinha();
+	}
+
+	var ano = 2019;
+	mostra("Eu nasci em : " + (ano - 25));
+	mostra("Adriano nasceu em : " + (ano - 26));
+	mostra("Paulo nasceu em : " + (ano - 32));*/
+	
+	//GERAÇÕES NO BRASIL	
+	/*function pulaLinha(){
+		document.write("<br>")
+	};
+	
+	function mostra(frase){
+		document.write(frase)
+	};
+	
+	var anosDoBrasil = 2021-1500;
+	var numeroDeGeracoes = anosDoBrasil/28
+	 
+	mostra( "O número de gerações do Brasil é de: " + numeroDeGeracoes + " gerações.")
+	pulaLinha();
+	mostra ("Cauculo arredondado de gerações do Brasil: " + Math.round(numeroDeGeracoes) + " gerações.")*/
+	
+	
+	// Cáuculo de alcool ou gasolina
+	/*var tanque =40;
+	var caminhoComGasolina = 480;
+	var caminhoComAlcool = 300;
+	var consumoDeGasolina = caminhoComGasolina/tanque;
+	var consumoDeAlcool = caminhoComAlcool/tanque;
+	
+	document.write("O consumo de gasolina foi de: " + consumoDeGasolina + " Km/l" +  "<br>")
+	document.write("O consumo de alcool foi de: " + consumoDeAlcool + " Km/l" + "<br>")*/
+	
+	// Cáuculo de diferença de idades
+	/*var minhaIdade = 28;
+	var idadeIrmao = 36;
+	var diferencaDeIdade = minhaIdade - idadeIrmao;
+	
+	function pulaLinha(){
+		document.write("<br>")
+	};
+	
+	function mostra (frase){
+		document.write(frase)	
+		pulaLinha();
+
+	};
+		mostra("A nossa diferença de idade é de: " + diferencaDeIdade);*/
+		
+	</script>
+
