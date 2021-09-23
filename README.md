@@ -11,5 +11,6 @@ _Repositório criado para armazenar códigos desenvolvidos durante os cursos do 
   * [Introdução á JavaScript](https://github.com/joelmaregina/Alura-Couse/tree/master/logicaDeProgramacao/introducao-javascript);
 * [ORACLE ONE: Front-End;](https://github.com/joelmaregina/Cloud-Girls-And-Alura-Courses/tree/master/FrontEnd)
   * [HTML e CSS III e IV;](https://github.com/joelmaregina/Cloud-Girls-And-Alura-Courses/tree/master/FrontEnd/HTML%20e%20CSS%20-%204%20e%205)
+  * [jQuery I e II;](https://github.com/joelmaregina/Cloud-Girls-And-Alura-Courses/tree/master/FrontEnd/jQuery%20-%201%20e%202)
 * ORACLE ONE: Java;
 * ORACLE ONE: Entrepreneurship. (_Empreendedorismo_)
