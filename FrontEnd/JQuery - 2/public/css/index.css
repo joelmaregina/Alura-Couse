@@ -1,0 +1,41 @@
+body{
+	background: black;
+	color: white;
+}
+.card{
+	width: 49%;
+	display: inline-block;
+	vertical-align: top;
+	background: navy;
+}
+
+#botao-jogue{
+	width: 150px;
+	display: block;
+	margin: 50px auto;
+}
+
+#botao-jogue:hover {
+	transition: 700ms;
+	color: navy;
+	font-weight: bold;	
+	font-size: 20px;
+	width: 200px;
+	height: 100px;
+}
+
+.imagem-jogo {
+	border: 5px dotted navy;
+}
+
+.slider {
+	height: auto;
+}
+
+.slick-dots {
+	background-color: navy;
+}
+
+.slick-prev:before, .slick-next:before{
+	color: white;
+}
