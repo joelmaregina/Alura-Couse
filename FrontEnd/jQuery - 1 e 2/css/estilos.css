@@ -33,3 +33,11 @@ body{
 #botao-reiniciar{
     color: Black;
 }
+
+.placar {
+    display: none;
+}
+
+body {
+    overflow: scroll;
+}
