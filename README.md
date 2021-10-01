@@ -14,5 +14,9 @@ _Repositório criado para armazenar códigos desenvolvidos durante os cursos do 
   * [jQuery I;](https://github.com/joelmaregina/Cloud-Girls-And-Alura-Courses/tree/master/FrontEnd/jQuery%20-%201%20e%202)
   * [jQuery II;](https://github.com/joelmaregina/Cloud-Girls-And-Alura-Courses/tree/master/FrontEnd/JQuery%20-%202)
   * [Responsive Layouts _(Layouts responsivos)_ : ](https://github.com/joelmaregina/Cloud-Girls-And-Alura-Courses/tree/master/FrontEnd/LayoutResponsivo)
+  * [Final Project of the Front-End Formation (_Projeto final da Formação Front-End_)](https://github.com/joelmaregina/Cloud-Girls-And-Alura-Courses/tree/master/FrontEnd/ProjetoFrontEndResponsivo) :
+    * HTML && CSS;
+    * Javascript  + jQuery;
+    * Responsive  Layout.
 * ORACLE ONE: Java;
 * ORACLE ONE: Entrepreneurship. (_Empreendedorismo_)
