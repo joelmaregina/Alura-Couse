@@ -1,0 +1,86 @@
+body {
+    width: 100%;
+}
+
+.header {
+    background: url(../img/fundo.jpg) no-repeat; 
+    background-size: cover;
+}
+
+
+.header .cabecalho {
+    text-align: center;
+}
+
+.header .cabecalho .itens-menu {
+    display: inline-block;
+    margin: 32px 2px 32px 0; 
+}
+
+.header .cabecalho .itens-menu  a{
+    color: white;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.5s;
+}
+
+
+.header .cabecalho .itens-menu a:hover  {
+    background-color: #46989D;
+    transition: background-color 0.5s;
+} 
+
+.header .jumbotron {
+    padding: 0 0 44px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.header .panel-main {
+    color: white;
+    text-shadow: 4px 4px 10px black;
+}
+
+.header .jumbotron .title {
+    font-size: 3em;
+}
+
+.header .jumbotron .subtitle {
+    font-size: 2.6em;
+    color: #64ff64;
+    margin-top: 7px;
+}
+
+header .jumbotron .panel-subscribe {
+    margin-top: 28px;
+}
+
+@media (min-width: 650px) {
+    .header .jumbotron {
+        font-size: 28px;
+    }
+}
+
+.button {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 25px 50px;
+    background-color: #48A3A6;
+    border-radius: 8px;
+    transition: 500ms;
+}
+
+.button:hover {
+    padding: 30px 65px;
+    background-color: #e0861e;
+    transition: 500ms;
+}
+
+
+
+
