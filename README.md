@@ -1,8 +1,8 @@
 # :girl: Cloud Girls && ALURA COURSE :computer:
 
-Repository created to store codes developed during Alura courses provided by the organizers and supporters of the "Cloud Girls" Meetup. 
+Repository created to store codes developed during Alura courses (Programming logic && Front-End) provided by the organizers and supporters of the "Cloud Girls" Meetup. 
 
-_Repositório criado para armazenar códigos desenvolvidos durante os cursos do Alura oferecidos pelos organizadores e apoiadores do Meetup "Cloud Girls '._
+_Repositório criado para armazenar códigos desenvolvidos durante os cursos do Alura (Lógica de Programação e Front-End) oferecidos pelos organizadores e apoiadores do Meetup "Cloud Girls '._
 
 * [ORACLE ONE Programming Logic (_Lógica de programação_);](https://github.com/joelmaregina/Alura-Couse/tree/master/logicaDeProgramacao)
   * [Programming logic I _(Lógica de programação I )_](https://github.com/joelmaregina/Alura-Couse/tree/master/logicaDeProgramacao/L%C3%B3gica%20I) ;
@@ -18,5 +18,4 @@ _Repositório criado para armazenar códigos desenvolvidos durante os cursos do 
     * HTML && CSS;
     * Javascript  + jQuery;
     * Responsive  Layout.
-* ORACLE ONE: Java;
-* ORACLE ONE: Entrepreneurship. (_Empreendedorismo_)
+
